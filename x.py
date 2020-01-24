@@ -88,7 +88,7 @@ def sendMessageWithMention(to, mid):
         logError(error)
 def helpmessage():
     helpMessage = """╔══════════════
-╠♥ ✿✿✿ 喵の特製單體半垢 ✿✿✿ ♥
+╠♥ ✿✿✿ 𝐹𝒶𝓃𝓉𝒶𝓈𝓎𝒮𝓉𝓊𝒹𝒾𝑜的 ✿✿✿ ♥
 ║
 ╠══✪〘 Help Message 〙✪═══
 ║
@@ -179,7 +179,7 @@ def helpmessage():
 ╠➥ Botslist 自動邀請表
 ╠➥ Join 自動邀請
 ║
-╚═〘 Created By: ©ながみ すずか™ 〙"""
+╚═〘 Created By: ©BianYuan 〙"""
     return helpMessage
 wait2 = {
     'readPoint':{},
@@ -193,8 +193,8 @@ setTime = wait2['setTime']
 def cTime_to_datetime(unixtime):
     return datetime.datetime.fromtimestamp(int(str(unixtime)[:len(str(unixtime))-3]))
 
-admin =['ud5ff1dff426cf9e3030c7ac2a61512f0','ua10c2ad470b4b6e972954e1140ad1891',clMID]
-owners = ["ud5ff1dff426cf9e3030c7ac2a61512f0","ua10c2ad470b4b6e972954e1140ad1891"]
+admin =['ub6f9d53713c5869f0d78e71febe1383',clMID]
+owners = ["ub6f9d53713c5869f0d78e71febe1383"]
 #if clMID not in owners:
 #    python = sys.executable
 #    os.execl(python, python, *sys.argv)
@@ -207,7 +207,7 @@ def lineBot(op):
             print ("[ 5 ] NOTIFIED ADD CONTACT")
             if settings["autoAdd"] == True:
                 cl.findAndAddContactsByMid(op.param1)
-                cl.sendMessage(op.param1, "感謝您加入本喵為好友w".format(str(cl.getContact(op.param1).displayName)))
+                cl.sendMessage(op.param1, "感謝您加入我為好友w".format(str(cl.getContact(op.param1).displayName)))
         if op.type == 11:
             group = cl.getGroup(op.param1)
             contact = cl.getContact(op.param2)
@@ -357,7 +357,7 @@ def lineBot(op):
                 elif text.lower() == 'about':
                     try:
                         arr = []
-                        owner ="ua10c2ad470b4b6e972954e1140ad1891"
+                        owner ="ub6f9d53713c5869f0d78e71febe1383"
                         creator = cl.getContact(owner)
                         contact = cl.getContact(clMID)
                         grouplist = cl.getGroupIdsJoined()
@@ -379,60 +379,60 @@ def lineBot(op):
                 elif text.lower() == 'set':
                     try:
                         ret_ = "╔══[ 狀態 ]"
-                        if settings["autoAdd"] == True: ret_ += "\n╠ Auto Add ✅"
-                        else: ret_ += "\n╠ Auto Add ❌"
-                        if settings["autoJoin"] == True: ret_ += "\n╠ Auto Join ✅"
-                        else: ret_ += "\n╠ Auto Join ❌"
-                        if settings["autoLeave"] == True: ret_ += "\n╠ Auto Leave ✅"
-                        else: ret_ += "\n╠ Auto Leave ❌"
-                        if settings["autoRead"] == True: ret_ += "\n╠ Auto Read ✅"
-                        else: ret_ += "\n╠ Auto Read ❌"
+                        if settings["autoAdd"] == True: ret_ += "\n╠ 自動加入好友 ✅"
+                        else: ret_ += "\n╠ 自動加入好友 ❌"
+                        if settings["autoJoin"] == True: ret_ += "\n╠ 自動進群 ✅"
+                        else: ret_ += "\n╠ 自動進群 ❌"
+                        if settings["autoLeave"] == True: ret_ += "\n╠ 自動離開群組 ✅"
+                        else: ret_ += "\n╠ 自動離開群組 ❌"
+                        if settings["autoRead"] == True: ret_ += "\n╠ 自動已讀 ✅"
+                        else: ret_ += "\n╠ 自動已讀 ❌"
                         if settings["protect"] ==True: ret_+="\n╠ Protect ✅"
                         else: ret_ += "\n╠ Protect ❌"
-                        if settings["qrprotect"] ==True: ret_+="\n╠ QrProtect ✅"
-                        else: ret_ += "\n╠ QrProtect ❌"
-                        if settings["invprotect"] ==True: ret_+="\n╠ InviteProtect ✅"
-                        else: ret_ += "\n╠ InviteProtect ❌"
+                        if settings["qrprotect"] ==True: ret_+="\n╠ 網址保護 ✅"
+                        else: ret_ += "\n╠ 網址保護 ❌"
+                        if settings["invprotect"] ==True: ret_+="\n╠ 邀請保護 ✅"
+                        else: ret_ += "\n╠ 邀請保護 ❌"
                         if settings["detectMention"] ==True: ret_+="\n╠ DetectMention ✅"
                         else: ret_ += "\n╠ DetectMention ❌"
                         if settings["reread"] ==True: ret_+="\n╠ Reread ✅"
                         else: ret_ += "\n╠ Reread ❌"
-                        if settings["share"] ==True: ret_+="\n╠ Share ✅"
-                        else: ret_ += "\n╠ Share ❌"
-                        ret_ += "\n╚══[ Finish ]"
+                        if settings["share"] ==True: ret_+="\n╠ 分享 ✅"
+                        else: ret_ += "\n╠ 分享 ❌"
+                        ret_ += "\n╚══[ 結束 ]"
                         cl.sendMessage(to, str(ret_))
                     except Exception as e:
                         cl.sendMessage(msg.to, str(e))
                 elif text.lower() == 'autoadd on':
                     settings["autoAdd"] = True
-                    cl.sendMessage(to, "Auto Add on success")
+                    cl.sendMessage(to, "自動加入好友已開啟")
                 elif text.lower() == 'autoadd off':
                     settings["autoAdd"] = False
-                    cl.sendMessage(to, "Auto Add off success")
+                    cl.sendMessage(to, "自動加入好友已關閉")
                 elif text.lower() == 'autojoin on':
                     settings["autoJoin"] = True
-                    cl.sendMessage(to, "Auto Join on success")
+                    cl.sendMessage(to, "自動進群以開啟")
                 elif text.lower() == 'autojoin off':
                     settings["autoJoin"] = False
-                    cl.sendMessage(to, "Auto Join off success")
+                    cl.sendMessage(to, "自動進群已關閉")
                 elif text.lower() == 'autoleave on':
                     settings["autoLeave"] = True
-                    cl.sendMessage(to, "Auto Leave on success")
+                    cl.sendMessage(to, "自動離開群組已開啟")
                 elif text.lower() == 'autojoin off':
                     settings["autoLeave"] = False
-                    cl.sendMessage(to, "Auto Leave off success")
+                    cl.sendMessage(to, "自動離開群組已關閉")
                 elif text.lower() == 'autoread on':
                     settings["autoRead"] = True
-                    cl.sendMessage(to, "Auto Read on success")
+                    cl.sendMessage(to, "自動已讀已開啟")
                 elif text.lower() == 'autoread off':
                     settings["autoRead"] = False
-                    cl.sendMessage(to, "Auto Read off success")
+                    cl.sendMessage(to, "自動已讀已關閉")
                 elif text.lower() == 'reread on':
                     settings["reread"] = True
-                    cl.sendMessage(to,"reread on success")
+                    cl.sendMessage(to,"查詢收回已開啟")
                 elif text.lower() == 'reread off':
                     settings["reread"] = False
-                    cl.sendMessage(to,"reread off success")
+                    cl.sendMessage(to,"查詢收回已關閉")
                 elif text.lower() == 'protect on':
                     settings["protect"] = True
                     cl.sendMessage(to, "踢人保護開啟")
@@ -504,10 +504,10 @@ def lineBot(op):
                     if admin == []:
                         cl.sendMessage(to,"無擁有權限者!")
                     else:
-                        mc = "╔══[ Admin List ]"
+                        mc = "╔══[ 管理員列表 ]"
                         for mi_d in admin:
                             mc += "\n╠ "+cl.getContact(mi_d).displayName
-                        cl.sendMessage(to,mc + "\n╚══[ Finish ]")
+                        cl.sendMessage(to,mc + "\n╚══[ 結束 ]")
                 elif msg.text.lower().startswith("invite "):
                     targets = []
                     key = eval(msg.contentMetadata["MENTION"])
@@ -566,10 +566,10 @@ def lineBot(op):
                     cl.sendMessage(msg.to,"[MID]\n" +  sender)
                 elif text.lower() == 'myname':
                     me = cl.getContact(sender)
-                    cl.sendMessage(msg.to,"[Name]\n" + me.displayName)
+                    cl.sendMessage(msg.to,"[名稱]\n" + me.displayName)
                 elif text.lower() == 'mybio':
                     me = cl.getContact(sender)
-                    cl.sendMessage(msg.to,"[StatusMessage]\n" + me.statusMessage)
+                    cl.sendMessage(msg.to,"[個簽]\n" + me.statusMessage)
                 elif text.lower() == 'mypicture':
                     me = cl.getContact(sender)
                     cl.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
@@ -1086,7 +1086,7 @@ def lineBot(op):
                                 if settings["detectMention"] == True:
                                     contact = cl.getContact(sender)
                                     sendMessageWithMention(to, contact.mid)
-                                    cl.sendMessage(to, "標毛?")
+                                    cl.sendMessage(to, "標三洨?")
                                 break
             try:
                 msg = op.message
